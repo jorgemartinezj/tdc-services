@@ -37,7 +37,54 @@ const agregarProducto = async(req, res) => {
   res.status(201).send({});
 }; // agregarProducto
 
+/**
+ * Eliminar producto por id.
+ *
+ * @param {object} req
+ * @param {object} res
+ */
+const eliminarProducto = async(req, res) => {
+  const { id } = req.params;
+
+  Productos.destroy({
+    where: {
+      id: id,
+    },
+  });
+
+  res.status(200).send({});
+}; // eliminarProducto
+
+/**
+ * Actualizar la información de un producto por su id.
+ *
+ * @param {object} req
+ * @param {object} res
+ */
+const actualizarProducto = async(req, res) => {
+  const { id } = req.params;
+  const { sku, nombre, precio, descripcion } = req.body;
+
+  // obtener el producto por el id
+  const producto = await Productos.findByPk(id);
+
+  // actualizar los datos
+  producto.sku = sku;
+  producto.nombre = nombre;
+  producto.precio = precio;
+  producto.descripcion = descripcion;
+
+  // grabar registro
+  await producto.save();
+
+  res.status(200).send({
+    data: producto,
+  });
+}; // actualizarProducto
+
 module.exports = {
   obtenerTodos,
   agregarProducto,
+  eliminarProducto,
+  actualizarProducto,
 }

@@ -11,11 +11,11 @@ module.exports = (sequelize, Sequelize) => {
     nombre: {
       type: Sequelize.STRING,
     },
-    precio: {
-      type: Sequelize.DECIMAL,
-    },
     descripcion: {
       type: Sequelize.STRING,
+    },
+    precio: {
+      type: Sequelize.DECIMAL,
     },
     createdAt: {
       type: Sequelize.DATE,
