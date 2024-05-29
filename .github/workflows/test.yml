@@ -1,0 +1,20 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Instalar Dependencias
+        run: npm install
+
+      - name: Ejecutar las pruebas
+        run: npm test
