@@ -1,4 +1,4 @@
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
 
 // validar el payload para agregar un producto.
 const agregarProducto = [
@@ -23,6 +23,16 @@ const agregarProducto = [
     .withMessage('El precio debe de ser númerico.'),
 ];
 
+// validar la solicitud para el borrado de un producto por id.
+const borrarProducto = [
+  param('id')
+    .exists()
+    .withMessage('Se espera el parámetro id del producto')
+    .isInt()
+    .withMessage('El id debe de ser númerico.'),
+];
+
 module.exports = {
   agregarProducto,
+  borrarProducto,
 };
