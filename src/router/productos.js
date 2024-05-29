@@ -6,5 +6,6 @@ const router = express.Router();
 
 // rutas
 router.get('/', productos.obtenerTodos);
+router.post('/', productos.agregarProducto);
 
 module.exports = router;
