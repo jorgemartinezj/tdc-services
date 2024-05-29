@@ -6,8 +6,14 @@ const Productos = require('./productos.js');
 const Plazos = require('./plazos.js');
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-    host: dbConfig.HOST,
-    dialect: dbConfig.dialect,
+  host: dbConfig.HOST,
+  dialect: dbConfig.dialect,
+  dialectOptions: {
+    ssl:{
+      require:true,
+      rejectUnauthorized: false,
+    },
+  },
 });
 
 const db = {};
