@@ -10,6 +10,6 @@ const router = express.Router();
 router.get('/', productos.obtenerTodos);
 router.post('/', validar(productosValidador.agregarProducto), productos.agregarProducto);
 router.delete('/:id', validar(productosValidador.borrarProducto), productos.eliminarProducto);
-router.put('/:id', productos.actualizarProducto);
+router.put('/:id', validar(productosValidador.actualizarProducto), productos.actualizarProducto);
 
 module.exports = router;

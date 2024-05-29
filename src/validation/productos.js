@@ -27,12 +27,34 @@ const agregarProducto = [
 const borrarProducto = [
   param('id')
     .exists()
-    .withMessage('Se espera el parámetro id del producto')
+    .withMessage('Se espera el parámetro id del producto.')
     .isInt()
     .withMessage('El id debe de ser númerico.'),
+];
+
+// validar el payload para actualizar un producto por su id.
+const actualizarProducto = [
+  param('id')
+    .exists()
+    .withMessage('Se espera el parámetro id del producto.')
+    .isInt()
+    .withMessage('El id debe de ser númerico.'),
+  body('nombre')
+    .optional()
+    .isLength({ min: 4, max: 50 })
+    .withMessage('El nombre debe de tener al menos 4 y no más de 50 caracteres.'),
+  body('descripcion')
+    .optional()
+    .isLength({ min: 10, max: 100 })
+    .withMessage('La descripción debe de tener al menos 10 y no más de 100 caracteres.'),
+  body('precio')
+    .optional()
+    .isNumeric()
+    .withMessage('El precio debe de ser númerico.'),
 ];
 
 module.exports = {
   agregarProducto,
   borrarProducto,
+  actualizarProducto,
 };
