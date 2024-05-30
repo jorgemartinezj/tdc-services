@@ -1,0 +1,5 @@
+## Estatus del Proyecto
+
+|                                                                                    Build                                                                                    |                                                                                   Tests                                                                                   |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Deploy](https://github.com/jorgemartinezj/tdc-services/actions/workflows/main.yml/badge.svg)](https://github.com/jorgemartinezj/tdc-services/actions/workflows/main.yml) | [![Test](https://github.com/jorgemartinezj/tdc-services/actions/workflows/test.yml/badge.svg)](https://github.com/jorgemartinezj/tdc-services/actions/workflows/test.yml) |
