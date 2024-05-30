@@ -31,7 +31,7 @@ const agregarProducto = async(req, res) => {
 
   if (producto !== null) { // existe un producto con el mismo sku
     return res.status(400).send({
-      mensaje: 'SKU no disponible',
+      mensaje: 'SKU no disponible.',
       producto: producto
     });
   }
