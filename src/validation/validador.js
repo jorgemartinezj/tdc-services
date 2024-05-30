@@ -17,8 +17,8 @@ const validar = (schemas) => {
 
     const errors = result.array();
 
-    return res.send({
-      message: 'Validation error',
+    return res.status(400).send({
+      message: 'Error en la validación',
       errors: errors,
     });
   };

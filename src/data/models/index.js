@@ -5,16 +5,23 @@ const dbConfig = require('../config');
 const Productos = require('./productos.js');
 const Plazos = require('./plazos.js');
 
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  dialectOptions: {
-    ssl:{
-      require:true,
-      rejectUnauthorized: false,
-    },
-  },
-});
+const sequelize = process.env.NODE_ENV !== 'test'
+  ? new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+      host: dbConfig.HOST,
+      dialect: dbConfig.dialect,
+      logging: process.env.NODE_ENV === 'development',
+      dialectOptions: {
+        ssl:{
+          require:true,
+          rejectUnauthorized: false,
+        },
+      },
+    })
+  : new Sequelize({
+    dialect: 'sqlite',
+    storage: ':memory:',
+    logging: false,
+  });
 
 const db = {};
 

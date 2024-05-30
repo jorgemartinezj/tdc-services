@@ -26,6 +26,16 @@ const obtenerTodos = async(req, res) => {
 const agregarProducto = async(req, res) => {
   const { sku, nombre, precio, descripcion } = req.body;
 
+  // buscar un producto con el sku
+  const producto = await Productos.findOne({ where: { sku: sku }});
+
+  if (producto !== null) { // existe un producto con el mismo sku
+    return res.status(400).send({
+      mensaje: 'SKU no disponible.',
+      producto: producto
+    });
+  }
+
   // grabar en la base de datos
   Productos.create({
     sku,
