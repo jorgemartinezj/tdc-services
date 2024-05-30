@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    num_semanas: {
+    numero_semanas: {
       type: Sequelize.INTEGER,
     },
     tasa_normal: {

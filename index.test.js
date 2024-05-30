@@ -4,7 +4,7 @@ const app = require('./app');
 const request = supertest(app)
 
 describe('Testear el inicio del servicio.', () => {
-  test('Debería de responder al método GET', (done) => {
+  test('Debería de responder al método GET.', (done) => {
     request.get('/')
       .expect(200)
       .then((response) => {

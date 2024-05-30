@@ -5,7 +5,7 @@ const app = require('../../app');
 
 const request = supertest(app);
 
-describe('Testear los validadores de los endpoints de productos', () => {
+describe('Testear los validadores de los endpoints de productos.', () => {
   beforeEach(async () => {
     await db.sequelize.sync({ force: true });
   });
@@ -47,7 +47,7 @@ describe('Testear los validadores de los endpoints de productos', () => {
 
   // ERROR sku
 
-  test('Debería de devolver un 400 si el sku no se envia.', (done) => {
+  test('Debería de devolver un 400 si el sku no se envía.', (done) => {
     request.post('/api/v1/productos')
       .send({
         nombre: 'Excepteur exercitation exercitation',
@@ -63,7 +63,7 @@ describe('Testear los validadores de los endpoints de productos', () => {
       });
   });
 
-  test('Debería de devolver un 400 si el SKU es menor a 4 caracteres', (done) => {
+  test('Debería de devolver un 400 si el SKU es menor a 4 caracteres.', (done) => {
     request.post('/api/v1/productos')
       .send({
         sku: '123',
@@ -79,7 +79,7 @@ describe('Testear los validadores de los endpoints de productos', () => {
       });
   });
 
-  test('Debería de devolver un 400 si el SKU es mayor a 10 caracteres', (done) => {
+  test('Debería de devolver un 400 si el SKU es mayor a 10 caracteres.', (done) => {
     request.post('/api/v1/productos')
       .send({
         sku: '12345678901',
@@ -124,7 +124,7 @@ describe('Testear los validadores de los endpoints de productos', () => {
 
   // ERROR nombre
 
-  test('Debería de devolver un 400 si el nombre no se envia.', (done) => {
+  test('Debería de devolver un 400 si el nombre no se envía.', (done) => {
     request.post('/api/v1/productos')
       .send({
         sku: '123456789',
@@ -176,7 +176,7 @@ describe('Testear los validadores de los endpoints de productos', () => {
 
   // ERROR precio
 
-  test('Debería de devolver un 400 si el precio no se envia.', (done) => {
+  test('Debería de devolver un 400 si el precio no se envía.', (done) => {
     request.post('/api/v1/productos')
       .send({
         sku: '123456789',
@@ -192,7 +192,7 @@ describe('Testear los validadores de los endpoints de productos', () => {
       });
   });
 
-  test('Debería de devolver un 400 si el precio se envía una cadena alfanumerica.', (done) => {
+  test('Debería de devolver un 400 si el precio se envía una cadena alfanumérica.', (done) => {
     request.post('/api/v1/productos')
       .send({
         sku: '123456789',
